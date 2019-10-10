@@ -255,6 +255,7 @@ paket-files/
 
 # CodeRush
 .cr/
+sellmarket/Areas/Central
 
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
