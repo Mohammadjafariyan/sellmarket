@@ -1,24 +1,40 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿/* font-Shabnam */
+@font-face {
+    font-family: Shabnam;
+    src: url('font/shabnam.eot');
+    src: url('font/shabnam.eot?#iefix') format('embedded-opentype'),
+    url('font/shabnam.woff') format('woff'),
+    url('font/shabnam.ttf') format('truetype');
+    font-weight: normal;
+}
+*{
+    direction: rtl;
+    text-align: right   ;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+
+.fileup *{
+    direction: ltr !important;
+    text-align: left !important;
+}
+.fromtop{
+    margin-top: 130px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+/* font-Shabnam */
+@font-face {
+    font-family: IranNastaliq;
+    src:     url('font/IranNastaliq.ttf') format('truetype');
+    font-weight: normal;
+}
+.sitetitle{
+    font-family: IranNastaliq, serif;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+*:not(.sitetitle){
+    font-family: Shabnam, serif;
+}
+
+.backgroundimage{
+    background-image:url('assets/img/tech/image4.jpg');
 }

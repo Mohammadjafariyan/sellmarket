@@ -1,0 +1,71 @@
+﻿@model sellmarket.Models.Product
+
+@{
+    ViewBag.Title = "title";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<div class="container fromtop">
+
+    @if (Model == null || Model?.Id == 0)
+    {
+        <h2>ثبت محصول</h2>
+    }
+    else
+    {
+        <h2>ویرایش محصول</h2>
+    }
+
+    <div class="clean-form">
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+                <label>@Html.LabelFor(m => m.Name)</label>
+                @Html.TextBoxFor(m => m.Name, new {@class = "form-control"})
+            </div>
+           
+            <div class="form-group">
+                 @{
+                                 var cost= Model?.Cost.ToString("G29");
+                             }
+                <label>@Html.LabelFor(m => m.Cost)</label>
+                @Html.TextBox("mycost", cost, new {@class = "form-control", @id = "mycost", @onchange = "mycostchange()"})
+                @Html.Hidden("Cost", cost, new {@class = "form-control", @id = "cost"})
+            </div>
+            <div class="form-group">
+                <label>@Html.LabelFor(m => m.Description)</label>
+                @Html.TextAreaFor(m => m.Description, new {@class = "form-control"})
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">ثبت</button>
+            </div>
+        }
+    </div>
+</div>
+
+
+@section scripts {
+
+    <script src="~/Content/assets/js/numberic.js" type="text/javascript"></script>
+
+    <script>
+// The options are...optional :)
+var autoNumericOptionsEuro = {
+    digitGroupSeparator        : ',',
+    currencySymbol             : ' تومان ',
+    allowDecimalPadding:false,  
+    currencySymbolPlacement    : AutoNumeric.options.currencySymbolPlacement.suffix,
+};
+
+
+var domElement  =document.getElementById("mycost");
+// Initialization
+var autonumeric= new AutoNumeric(domElement, autoNumericOptionsEuro);
+  var cost=document.getElementById('cost');
+
+function mycostchange() {
+  cost.value=autonumeric.getNumber();
+}
+</script>
+
+}

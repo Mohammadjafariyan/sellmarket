@@ -199,20 +199,86 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DbModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\assets\css\baguette.css" />
+    <Content Include="Content\assets\css\filepond-plugin-image-preview.min.css" />
+    <Content Include="Content\assets\css\filepont.css" />
+    <Content Include="Content\assets\css\styles.min.css" />
+    <Content Include="Content\assets\css\uppy.css" />
+    <Content Include="Content\assets\fonts\Simple-Line-Icons.eot" />
+    <Content Include="Content\assets\fonts\simple-line-icons.min.css" />
+    <Content Include="Content\assets\fonts\Simple-Line-Icons.svg" />
+    <Content Include="Content\assets\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="Content\assets\fonts\Simple-Line-Icons.woff" />
+    <Content Include="Content\assets\fonts\Simple-Line-Icons.woff2" />
+    <Content Include="Content\assets\img\avatars\avatar1.jpg" />
+    <Content Include="Content\assets\img\avatars\avatar2.jpg" />
+    <Content Include="Content\assets\img\avatars\avatar3.jpg" />
+    <Content Include="Content\assets\img\rice\448e15dedcfd301ae6777ff95ea755ef_-_برنج_دودی.jpg" />
+    <Content Include="Content\assets\img\rice\hashemi-rice-5kg-01.jpg" />
+    <Content Include="Content\assets\img\rice\t1-e1530456227340.png" />
+    <Content Include="Content\assets\img\rice\zarin-tea-1.jpg" />
+    <Content Include="Content\assets\img\scenery\image1.jpg" />
+    <Content Include="Content\assets\img\scenery\image3.jpg" />
+    <Content Include="Content\assets\img\scenery\image4.jpg" />
+    <Content Include="Content\assets\img\scenery\image5.jpg" />
+    <Content Include="Content\assets\img\scenery\image6.jpg" />
+    <Content Include="Content\assets\img\star-empty.svg" />
+    <Content Include="Content\assets\img\star-half-empty.svg" />
+    <Content Include="Content\assets\img\star.svg" />
+    <Content Include="Content\assets\img\tech\image1.jpg" />
+    <Content Include="Content\assets\img\tech\image2.jpg" />
+    <Content Include="Content\assets\img\tech\image3.png" />
+    <Content Include="Content\assets\img\tech\image4.jpg" />
+    <Content Include="Content\assets\js\filepond-plugin-file-encode.min.js" />
+    <Content Include="Content\assets\js\filepond-plugin-file-validate-size.min.js" />
+    <Content Include="Content\assets\js\filepond-plugin-file-validate-type.min.js" />
+    <Content Include="Content\assets\js\filepond-plugin-image-crop.min.js" />
+    <Content Include="Content\assets\js\filepond-plugin-image-edit.min.js" />
+    <Content Include="Content\assets\js\filepond-plugin-image-exif-orientation.min.js" />
+    <Content Include="Content\assets\js\filepond-plugin-image-preview.min.js" />
+    <Content Include="Content\assets\js\filepond-plugin-image-resize.min.js" />
+    <Content Include="Content\assets\js\filepond-plugin-image-transform.min.js" />
+    <Content Include="Content\assets\js\filepond.js" />
+    <Content Include="Content\assets\js\jquery.min.js" />
+    <Content Include="Content\assets\js\numberic.js" />
+    <Content Include="Content\assets\js\require.js" />
+    <Content Include="Content\assets\js\script.min.js" />
+    <Content Include="Content\assets\js\uppy.js" />
+    <Content Include="Content\assets\js\uppyinit.js" />
+    <Content Include="Content\blog-post.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\catalog-page.html" />
+    <Content Include="Content\contact-us.html" />
+    <Content Include="Content\font\IranNastaliq.ttf" />
+    <Content Include="Content\font\shabnam.eot" />
+    <Content Include="Content\font\shabnam.ttf" />
+    <Content Include="Content\font\shabnam.woff" />
+    <Content Include="Content\index.html" />
+    <Content Include="Content\login.html" />
+    <Content Include="Content\product-page.html" />
+    <Content Include="Content\registration.html" />
+    <Content Include="Content\shopping-cart.html" />
+    <Content Include="Content\testimonials.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -222,6 +288,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -233,6 +301,15 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Success.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\CreateImagePage.cshtml" />
+    <Content Include="Views\Products\Images.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Shared\CreateImagePagePartial.cshtml" />
+    <Content Include="Views\Shared\ImagesPartial.cshtml" />
+    <Content Include="Views\Shared\Paging.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -270,6 +347,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

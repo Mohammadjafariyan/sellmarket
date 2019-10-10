@@ -1,0 +1,83 @@
+﻿@model sellmarket.Models.Image
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container fromtop">
+
+	<h2>آپلود عکس های جدید</h2>
+	 <div style="float: left;">
+            @Html.ActionLink("بازگشت", "Images",new {id=ViewBag.id} )
+        </div>
+    @Html.Partial("CreateImagePagePartial")
+
+</div>
+
+
+
+@*
+@section scripts
+{
+    
+<link rel="stylesheet" href="~/Content/assets/css/filepont.css">
+<link rel="stylesheet" href="~/Content/assets/css/filepond-plugin-image-preview.min.css">
+<script src="~/Content/assets/js/filepond.js" type="text/javascript"></script>
+<script src="~/Content/assets/js/filepond-plugin-file-encode.min.js" type="text/javascript"></script>
+<script src="~/Content/assets/js/filepond-plugin-file-validate-type.min.js" type="text/javascript"></script>
+<script src="~/Content/assets/js/filepond-plugin-file-validate-size.min.js" type="text/javascript"></script>
+<script src="~/Content/assets/js/filepond-plugin-image-exif-orientation.min.js" type="text/javascript"></script>
+
+<script src="~/Content/assets/js/filepond-plugin-image-preview.min.js" type="text/javascript"></script>
+
+<script>
+  // We want to preview images, so we register
+  // the Image Preview plugin, We also register 
+  // exif orientation (to correct mobile image
+  // orientation) and size validation, to prevent
+  // large files from being added
+  FilePond.registerPlugin(
+    FilePondPluginFileValidateSize,
+    // encodes the file as base64 data
+      FilePondPluginFileEncode,
+    	
+      FilePondPluginFileValidateType,
+    	
+      FilePondPluginImageExifOrientation,
+    	
+      FilePondPluginImagePreview,
+
+  );
+  
+  
+  FilePond.setOptions({
+  server:{
+      url: '/products/loadImageFromWeb',
+      process: null,
+      revert: null,
+      restore: null,
+      load: null,
+      fetch: '?url='
+  }
+  });
+  
+  // Select the file input and use 
+  // create() to turn it into a pond
+ var pond=FilePond.create(
+ 	document.querySelector('input'),
+ 	{
+ 		labelIdle: `تصویر را بکشید و در اینجا بیاندازید یا  <span class="filepond--label-action">انتخاب نمایید </span>`,
+     /*imagePreviewHeight: 170,*/
+/*     imageResizeTargetWidth: 200,
+     imageResizeTargetHeight: 200,
+     stylePanelLayout: 'compact circle',*/
+ 	}
+ ); 
+ 
+ 
+ 
+ 
+      
+</script>
+
+}*@

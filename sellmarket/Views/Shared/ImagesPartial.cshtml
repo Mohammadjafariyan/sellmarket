@@ -1,0 +1,44 @@
+﻿@model List<sellmarket.Models.Image>
+
+<style>
+
+div.polaroid {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+div.container2 {
+  text-align: center;
+  padding: 10px 20px;
+}
+</style>
+    @{
+        if (ViewBag.action == null)
+        {
+            ViewBag.action = HttpContext.Current.Request.
+                RequestContext.RouteData.Values["controller"].ToString();
+        }
+    }
+
+<div class="row">
+
+@foreach (var image in Model)
+    {
+       
+                                                                                                                                                                    
+        <div class="polaroid col-md-3" style="margin-right: 30px;">
+            <img  src="@Url.Action("ImageUrl", ViewBag.action, new {id = image.Id})" alt="5 Terre" 
+                  style="width:100%;margin-top: 3px; height: 200px;
+border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;">
+            <div class="container2">
+                <p>  نوع :  @image.ImageType    </p>
+                <a class="btn btn-danger" href="@Url.Action("DeleteImage",new {id=image.Id,productId=ViewBag.id})">x</a>
+            </div>
+        </div>
+                                                                                                                                                                    
+    }
+
+</div>

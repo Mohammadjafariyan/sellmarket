@@ -1,0 +1,97 @@
+﻿@model List<sellmarket.Models.Product>
+
+@{
+    ViewBag.Title = "لیست محصولات";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<div class="container fromtop" >
+
+    <h2>لیست محصولات</h2>
+    @Html.ActionLink("تعریف محصول جدید", "Create")
+
+    <table class="table table-bordered table-condensed table-striped">
+        <thead>
+        <tr>
+            <th>کد</th>
+            <th>نام</th>
+            <th>توضیحات</th>
+            <th>قیمت</th>
+            <th>-</th>
+            <th>-</th>
+            <th>-</th>
+        </tr>
+
+        </thead>
+        <tbody>
+                @foreach (var product in Model)
+                {
+                    <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.Description</td>
+                    <td>
+                        @using (Html.BeginForm())
+                        {
+                            var cost= product.Cost.ToString("G29");
+                            
+                            @Html.TextBox("mycost", cost
+                                ,new {@id="mycost"+product.Id, @onchange=$@"myCostChange('{@product.Id}')"})
+                            @Html.Hidden("cost", cost,
+                                new {@id="cost"+product.Id})
+                            @Html.Hidden("productId", product.Id)
+                        }
+                    </td>
+                    <td>@Html.ActionLink("ویرایش", "Create", new {id = product.Id})</td>
+                    <td>
+                        @using (Html.BeginForm("Delete", "Products", new {id = product.Id}))
+                        {
+                            <button type="submit" class="btn btn-danger"> حذف</button>
+                        }
+                    </td>
+                    <td>@Html.ActionLink("عکس ها", "Images", new {id = product.Id})</td>
+                        </tr>
+    }
+        </tbody>
+    </table>
+
+    <div>
+        @Html.Partial("Paging")
+    </div>
+</div>
+
+
+
+@section scripts {
+
+    <script src="~/Content/assets/js/numberic.js" type="text/javascript"></script>
+
+    <script>
+$(document).ready(function() {
+  // The options are...optional :)
+  var autoNumericOptionsEuro = {
+      digitGroupSeparator        : ',',
+      currencySymbol             : ' تومان ',
+      allowDecimalPadding:false,  
+      currencySymbolPlacement    : AutoNumeric.options.currencySymbolPlacement.suffix,
+  };
+  
+  
+  let autos={};
+  
+  var idarray=[ @string.Join(",", Model.Select(m => m.Id))];
+  for(var i = 0; i < idarray.length; i++) {
+    let domElement  =document.getElementById("mycost"+idarray[i]);
+    let domElement2  =document.getElementById("cost"+idarray[i]);
+    domElement.value=domElement2.value;
+  let autonumeric= new AutoNumeric(domElement, autoNumericOptionsEuro);
+      autos[idarray[i]]=autonumeric;
+  }
+})
+
+function myCostChange(id) {
+  document.getElementById('cost'+id).value=autos[id].getNumber();
+}
+</script>
+
+}

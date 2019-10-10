@@ -1,14 +1,34 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>.          برنج کاران - نمایندگی مستقیم برنج شمال ایران      </title>
+    <link rel="stylesheet" href="~/Content/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="~/Content/assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="~/Content/assets/css/baguette.css">
+    <link rel="stylesheet" href="~/Content/assets/css/styles.min.css">
+    <link rel="stylesheet" href="~/Content/Site.css">
 </head>
 <body>
+ <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+     <div class="container">
+         <a class="sitetitle navbar-brand logo" href="/">برنج کاران - نمایندگی مستقیم برنج شمال ایران</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+         <div
+             class="collapse navbar-collapse" id="navcol-1">
+             <ul class="nav navbar-nav ml-auto">
+               
+                 @*
+                 <li class="nav-item" role="presentation"><a class="nav-link" href="catalog-page.html">Catalog</a></li>
+                 <li class="nav-item" role="presentation"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+             *@
+             </ul>
+             @Html.Partial("_LoginPartial")
+         </div>
+
+     </div>
+    </nav>@*
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -28,17 +48,55 @@
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
-    </div>
-    <div class="container body-content">
+    </div>*@
+    <div class="container-fluid body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+          <footer class="page-footer dark" style="text-align: center;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3 col-sm-offset-9">
+                            <h5>لینک های کمکی</h5>
+                            <ul>
+                                <li><a href="#">  سفارش نمونه یا خرید(خانه)</a></li>
+                            <li  >@Html.ActionLink("ورود", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class="nav-link"})</li>
+ </ul>
+                        </div>
+                        @*<div class="col-sm-3">
+                            <h5>About us</h5>
+                            <ul>
+                                <li><a href="#">Company Information</a></li>
+                                <li><a href="#">Contact us</a></li>
+                                <li><a href="#">Reviews</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-3">
+                            <h5>Support</h5>
+                            <ul>
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">Help desk</a></li>
+                                <li><a href="#">Forums</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-3">
+                            <h5>Legal</h5>
+                            <ul>
+                                <li><a href="#">Terms of Service</a></li>
+                                <li><a href="#">Terms of Use</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>*@
+                    </div>
+                </div>
+                <div class="footer-copyright" >
+                    <p class="sitetitle">خسروشاه - قطب راوند کوچه شهید رزقی پلاک 9 - شماره تماس : 09148980692 - 04132445070</p>
+                </div>
+            </footer>
+            <script src="~/Content/assets/js/jquery.min.js"></script>
+            <script src="~/Content/assets/bootstrap/js/bootstrap.min.js"></script>
+            <script src="~/Content/assets/css/baguette.css"></script>
+            <script src="~/Content/assets/js/script.min.js"></script>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>

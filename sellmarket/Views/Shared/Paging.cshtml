@@ -1,0 +1,9 @@
+@model dynamic
+
+
+<div style="display: table-column">
+    @for (int i = 1; i <= ViewBag.total; i++)
+    {
+        <a href="@Url.Action(ViewBag.action, new {skip = i})" class="btn btn-info">@i</a>
+    }
+</div>
